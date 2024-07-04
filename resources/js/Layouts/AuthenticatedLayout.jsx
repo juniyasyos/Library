@@ -2,7 +2,7 @@ import { useState } from "react";
 import ApplicationLogo from "@/Components/Elements/ApplicationLogo";
 import Dropdown from "@/Components/Fragments/Dropdown";
 import NavLink from "@/Components/Fragments/NavLink";
-import ResponsiveNavLink from "@/Components/Fragments/ResponsiveNavLink";
+import ResponsiveNavLink from "@/Components/Elements/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 
 export default function Authenticated({ user, header, children }) {
