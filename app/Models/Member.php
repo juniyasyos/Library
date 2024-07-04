@@ -16,10 +16,8 @@ class Member extends Model
      */
     protected $fillable = [
         'full_name',
-        'member_type',
         'department_id',
         'phone_number',
-        'email',
         'address',
         'join_date',
     ];
@@ -30,14 +28,6 @@ class Member extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
-    }
-
-    /**
-     * Mendapatkan semua student ID yang terkait dengan anggota ini.
-     */
-    public function studentIDs()
-    {
-        return $this->belongsToMany(StudentID::class, 'member_student_i_d', 'member_id', 'student_id');
     }
 
     /**

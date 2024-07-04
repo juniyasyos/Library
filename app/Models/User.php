@@ -44,14 +44,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * Mendapatkan anggota (member) yang terkait dengan user ini.
-     */
-    public function member()
-    {
-        return $this->belongsTo(Member::class);
-    }
-
-    /**
      * Mendapatkan role user ini.
      */
     public function role()
