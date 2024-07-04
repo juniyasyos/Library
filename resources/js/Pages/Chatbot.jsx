@@ -161,14 +161,14 @@ function Chatbot() {
             <div className="flex-grow flex flex-col justify-end px-6 py-8">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-800">
-                        Ask Blackbox AI Anything
+                        Ask Library AI Anything
                     </h1>
                     <p className="text-gray-600 mt-2">
-                        Trusted by Millions of Users & Fortune 500 Companies
+                        Trusted by Millions of Student & Fortune Bachelor Companies
                     </p>
                 </div>
 
-                <div className="flex-grow overflow-y-auto mb-4 px-4 flex flex-col items-center justify-center">
+                <div className="flex-grow overflow-y-auto mb-20 px-4 flex flex-col items-center justify-center">
                     {chatHistory.length === 0 ? (
                         <button
                             onClick={surprise}
@@ -195,29 +195,31 @@ function Chatbot() {
                     )}
                 </div>
 
-                <div className="bg-gray-100 rounded-lg p-4 shadow-md flex">
-                    <textarea
-                        ref={textareaRef}
-                        value={value}
-                        placeholder="Ask me anything..."
-                        onChange={(e) => setValue(e.target.value)}
-                        className="flex-grow px-4 py-2 rounded-lg bg-gray-200 focus:outline-none mr-2 resize-none overflow-hidden"
-                        style={{ minHeight: "36px" }}
-                    />
-                    <button
-                        onClick={getResponse}
-                        disabled={!value.trim() || error !== null}
-                        className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium mr-2"
-                    >
-                        Send
-                    </button>
+                <div className="fixed bottom-0 left-0 w-full px-6 pb-6">
+                    <div className="bg-gray-100 rounded-lg p-4 shadow-md flex">
+                        <textarea
+                            ref={textareaRef}
+                            value={value}
+                            placeholder="Ask me anything..."
+                            onChange={(e) => setValue(e.target.value)}
+                            className="flex-grow px-4 py-2 rounded-lg bg-gray-200 focus:outline-none mr-2 resize-none overflow-hidden"
+                            style={{ minHeight: "36px" }}
+                        />
+                        <button
+                            onClick={getResponse}
+                            disabled={!value.trim() || error !== null}
+                            className="bg-blue-500 text-white px-6 py-2 rounded-lg font-medium mr-2"
+                        >
+                            Send
+                        </button>
 
-                    <button
-                        onClick={clear}
-                        className="bg-gray-400 text-white px-6 py-2 rounded-lg font-medium"
-                    >
-                        Clear
-                    </button>
+                        <button
+                            onClick={clear}
+                            className="bg-gray-400 text-white px-6 py-2 rounded-lg font-medium"
+                        >
+                            Clear
+                        </button>
+                    </div>
                 </div>
                 {error && (
                     <p className="text-red-600 mt-2 text-center">{error}</p>
