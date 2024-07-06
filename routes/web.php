@@ -1,25 +1,22 @@
 <?php
 
-use App\Http\Controllers\Profiles\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\Welcome;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Profiles\ProfileController;
+use App\Http\Controllers\Dashboard\Dashboard;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [Welcome::class, 'index'])->name('welcome');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [Dashboard::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/chakra', function () {
+    return Inertia::render('Chakra');
+})->name('chakra');
+
 
 Route::get('/chatbot', function () {
-    return Inertia::render('Chatbot');
+    return Inertia::render('Chatbot/Chatbot');
 });
 
 Route::middleware('auth')->group(function () {
@@ -28,4 +25,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
