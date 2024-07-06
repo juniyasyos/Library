@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config();
 
-const PORT = 4000;
+const PORT = 4100;
 const app = express();
 
 app.use(cors());
@@ -14,10 +14,10 @@ app.use(express.json());
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_TOKEN_API_KEY);
 
 app.post("/gemini", async (req, res) => {
-    console.log(req.body.history);
-    console.log(req.body.message);
+    // console.log(req.body.history);
+    // console.log(req.body.message);
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });  
 
     const history = req.body.history || [];
 
@@ -33,7 +33,7 @@ app.post("/gemini", async (req, res) => {
     const result = await chat.sendMessage(msg);
     const response = await result.response;
     const text = response.text();
-    console.log(text);
+    // console.log(text);
     res.send(text);
 });
 
