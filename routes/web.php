@@ -10,6 +10,10 @@ Route::get('/', [Welcome::class, 'index'])->name('welcome');
 
 Route::get('/dashboard', [Dashboard::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/dev/login', function () {
+    return Inertia::render('Auth/Login1');
+});
+
 Route::get('/chakra', function () {
     return Inertia::render('Chakra');
 })->name('chakra');

@@ -139,6 +139,52 @@ const Chatbot = () => {
         }
     };
 
+    // // Fetches response from server with typing indicator
+    // const getResponse = async () => {
+    //     const message = userInput.trim();
+
+    //     if (!message) {
+    //         setError("Please enter a message.");
+    //         return;
+    //     }
+
+    //     setError(null);
+    //     setChatHistory((prevHistory) => [
+    //         ...prevHistory,
+    //         { role: "user", parts: [{ text: message }] },
+    //     ]);
+    //     setUserInput("");
+    //     setIsTyping(true);
+
+    //     try {
+    //         const response = await fetch("http://127.0.0.1:8000/chatbot", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify({
+    //                 message,
+    //                 history: chatHistory.slice(-5), // Kirim 5 pesan terakhir
+    //             }),
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error("Network response error.");
+    //         }
+
+    //         // Asumsi server mengembalikan JSON
+    //         const data = await response.json();
+    //         const responseText = data.message; // Sesuaikan dengan struktur respons JSON
+
+    //         setChatHistory((prevHistory) => [
+    //             ...prevHistory,
+    //             { role: "model", parts: [{ text: responseText }] },
+    //         ]);
+    //     } catch (error) {
+    //         console.error("Error fetching response:", error);
+    //         setError("Something went wrong. Please try again later.");
+    //     } finally {
+    //         setIsTyping(false);
+    //     }
+    // };
     // Clears error on input change
     useEffect(() => {
         if (userInput) {
@@ -164,7 +210,7 @@ const Chatbot = () => {
                 bg="white"
                 h="100vh"
                 direction="column"
-                fontSans="true"
+                // fo="true"
                 maxW="3xl"
                 mx="auto"
             >
@@ -272,13 +318,7 @@ const Chatbot = () => {
                 </Box>
 
                 {/* Input and buttons */}
-                <Box
-                    position="fixed"
-                    bottom={0}
-                    left={0}
-                    w="full"
-                    px={6}
-                >
+                <Box position="fixed" bottom={0} left={0} w="full" px={6}>
                     <Box
                         bg="gray.100"
                         borderRadius="lg"

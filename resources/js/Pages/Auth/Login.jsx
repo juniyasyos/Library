@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Checkbox from '@/Components/Elements/Checkbox';
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestLayout from '@/Pages/Layouts/GuestLayout';
 import InputError from '@/Components/Elements/InputError';
 import InputLabel from '@/Components/Elements/InputLabel';
 import PrimaryButton from '@/Components/Elements/PrimaryButton';
